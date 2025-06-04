@@ -16,7 +16,7 @@ export default function LandingPage() {
       <header className="relative z-10 px-6 py-8">
         <nav className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold text-white">
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">ComplyAI</span>
+            <img src="/logo.png" alt="Privnt" className="h-8" />
           </div>
           <div className="hidden md:flex space-x-8 text-gray-300">
             <a href="#features" className="hover:text-white transition-colors">Features</a>
@@ -200,7 +200,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="relative z-10 px-6 py-12 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center text-gray-400">
-          <p>&copy; 2025 AutoComply. Turning regulatory complexity into competitive advantage.</p>
+          <p>&copy; 2025 Privnt. Turning regulatory complexity into competitive advantage.</p>
         </div>
       </footer>
     </div>
