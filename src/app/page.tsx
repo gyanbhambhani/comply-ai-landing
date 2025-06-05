@@ -1,26 +1,16 @@
 "use client";
-import React, { useState, useEffect, MouseEvent, ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { ArrowRight, Shield, Zap, Target, AlertTriangle, TrendingUp, Users, Clock, DollarSign, Sparkles, CheckCircle } from 'lucide-react';
 
 export default function SuperchargedLandingPage() {
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent<Document>) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-
-    window.addEventListener('mousemove', handleMouseMove as any);
     window.addEventListener('scroll', handleScroll);
-
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove as any);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -138,7 +128,7 @@ export default function SuperchargedLandingPage() {
             </span>
           </div>
           <div className="hidden md:flex space-x-8 text-slate-600">
-            {['Features', 'Your Challenges', 'How We Help'].map((item, index) => (
+            {['Features', 'Your Challenges', 'How We Help'].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`} 
@@ -166,7 +156,7 @@ export default function SuperchargedLandingPage() {
           
           <h1 className="text-6xl md:text-8xl font-bold text-slate-800 mb-8 leading-tight">
             <span className="block animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Your AI Startup's
+              Your AI Startup&apos;s
             </span>
             <span className="block bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 bg-clip-text text-transparent animate-fade-in-up hover:scale-105 transition-transform duration-300 cursor-default" style={{ animationDelay: '0.3s' }}>
               Legal Co-Pilot
@@ -184,9 +174,9 @@ export default function SuperchargedLandingPage() {
               { icon: Clock, value: "7.2 months", label: "Average delay identifying regulations", color: "emerald", delay: "0.7s" },
               { icon: DollarSign, value: "30%", label: "Engineering resources on compliance", color: "green", delay: "0.9s" },
               { icon: TrendingUp, value: "7%", label: "Global revenue penalties (EU AI Act)", color: "teal", delay: "1.1s" }
-            ].map((stat, index) => (
+            ].map((stat) => (
               <div 
-                key={index}
+                key={stat.value}
                 className="group bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl p-8 hover:bg-white/90 transition-all duration-500 hover:scale-110 hover:-rotate-2 shadow-lg hover:shadow-2xl cursor-pointer animate-fade-in-up"
                 style={{ animationDelay: stat.delay }}
               >
@@ -328,9 +318,9 @@ export default function SuperchargedLandingPage() {
                 color: "teal",
                 delay: "0.8s"
               }
-            ].map((feature, index) => (
+            ].map((feature) => (
               <div 
-                key={index}
+                key={feature.title}
                 className="group bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl p-8 hover:bg-white/90 transition-all duration-500 hover:scale-110 hover:shadow-2xl animate-fade-in-up"
                 style={{ animationDelay: feature.delay }}
               >
@@ -366,8 +356,8 @@ export default function SuperchargedLandingPage() {
               { value: "90%", label: "Reduction in manual compliance work", color: "emerald" },
               { value: "6-9 months", label: "Faster enterprise sales cycles", color: "green" },
               { value: "$150k", label: "vs $1.2M average audit penalties", color: "teal" }
-            ].map((stat, index) => (
-              <div key={index} className="group">
+            ].map((stat) => (
+              <div key={stat.value} className="group">
                 <div className={`text-4xl font-bold text-${stat.color}-600 mb-2 group-hover:scale-110 transition-transform duration-300`}>
                   {stat.value}
                 </div>
