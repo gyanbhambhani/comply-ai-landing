@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Privnt",
-  description: "Your AI Legal Co-Pilot",
+  title: "Privnt - Industry-Grade AI Agent Standards",
+  description: "The first comprehensive grading system for agentic AI systems. Benchmark your agents against industry standards and regulatory frameworks.",
+  keywords: "AI agents, agentic AI, compliance standards, agent grading, multi-agent systems, AI certification",
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png' },
